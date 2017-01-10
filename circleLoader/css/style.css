@@ -1,0 +1,92 @@
+.dial-container {
+    position: absolute;
+    top: 0;
+    width: 2em;
+    height: 4em;
+    overflow: hidden;
+    /*background: black;*/
+}
+
+.wedge {
+    background: red;
+    width: 2em;
+    height: 4em;
+}
+
+.container1 {
+    left: 2em;
+}
+
+.container2 {
+    left:0px;
+}
+
+.container1 .wedge {
+    animation: first-rotate 4s infinite linear;
+    border-radius: 0 4em 4em 0;
+    transform-origin: 0% 50%;
+}
+
+.container2 .wedge {
+    animation: second-rotate 4s infinite linear;
+    border-radius: 4em 0 0 4em;
+    transform-origin: 100% 50%;
+}
+
+.wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -65%);
+}
+
+.wrapper::after {
+    content: "";
+    background: #fff;
+    border-radius: 50%;
+    width: 3em;
+    height: 3em;
+    position: absolute;
+    top: 0.5em;
+    left: 0.5em;
+}
+
+.marker {
+    background: black;
+    border-radius: 50%;
+    height: 0.5em;
+    width: 0.5em;
+    position: absolute;
+    top: 0;
+    /*left: calc(50% - 0.25em);*/
+    left:1.75em;
+}
+.end {
+    animation: rotate-marker 4s infinite linear;
+    transform-origin: 50% 2em;
+}
+
+/* animations */
+@keyframes first-rotate {
+    0% {
+        transform: rotateZ(-180deg);
+    }
+    50%, 100% {
+        transform: rotateZ(0deg);
+    }
+}
+
+@keyframes second-rotate {
+    0%, 50% {
+        transform: rotateZ(-180deg);
+    }
+    100% {
+        transform: rotateZ(0deg);
+    }
+}
+
+@keyframes rotate-marker {
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
